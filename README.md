@@ -9,7 +9,9 @@ An automotive dealership sells various car models to customers. Each sale can in
 4. Calculate the average sale amount per customer.
 
 ## Database and Tables
-> Copy and paste all of this into your SQL editor
+> Copy and paste this code into your SQL editor.
+
+> This is conducted on MySQL/MariaDB relational database management system. 
 
 ```
 CREATE DATABASE sql_automotive;
