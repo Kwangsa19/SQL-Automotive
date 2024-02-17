@@ -3,10 +3,10 @@
 ## Scenario
 An automotive dealership sells various car models to customers. Each sale can include multiple car models. The dealership wants to analyze its sales data to:
 
-* Identify the relationship between sales and customers.
-* Calculate total sales revenue since the beginning of 2021.
-* Determine the top 3 most popular car models based on sales frequency.
-* Calculate the average sale amount per customer.
+1. Identify the relationship between sales and customers.
+2. Calculate total sales revenue since the beginning of 2021.
+3. Determine the top 3 most popular car models based on sales frequency.
+4. Calculate the average sale amount per customer.
 
 ## Database and Tables
 > Copy and paste all of this into your SQL editor
@@ -122,4 +122,46 @@ INSERT INTO SaleDetails (SaleDetailID, SaleID, CarID, Quantity) VALUES
 (19, 8, 3, 1),
 (20, 9, 2, 2),
 (21, 10, 1, 1);
+```
+
+## Solutions
+1. Identify the relationship between sales and customers.
+```
+SELECT s.SaleID, c.CustomerName
+FROM Sales s
+INNER JOIN Customers c ON s.CustomerID = c.CustomerID;
+```
+
+
+
+2. Calculate total sales revenue since the beginning of 2021.
+
+
+```
+SELECT SUM(cd.Quantity * ca.Price) AS TotalRevenue
+FROM SaleDetails cd
+INNER JOIN Sales s ON cd.SaleID = s.SaleID
+INNER JOIN Cars ca ON cd.CarID = ca.CarID
+WHERE s.SaleDate >= '2021-01-01';
+```
+
+3. Determine the top 3 most popular car models based on sales frequency.
+
+```
+SELECT ca.CarModel, COUNT(cd.CarID) AS SalesFrequency
+FROM SaleDetails cd
+INNER JOIN Cars ca ON cd.CarID = ca.CarID
+GROUP BY cd.CarID
+ORDER BY SalesFrequency DESC
+LIMIT 3;
+```
+
+4. Calculate the average sale amount per customer.
+```
+SELECT c.CustomerName, AVG(cd.Quantity * ca.Price) AS AvgSaleAmount
+FROM Sales s
+INNER JOIN Customers c ON s.CustomerID = c.CustomerID
+INNER JOIN SaleDetails cd ON s.SaleID = cd.SaleID
+INNER JOIN Cars ca ON cd.CarID = ca.CarID
+GROUP BY s.CustomerID;
 ```
