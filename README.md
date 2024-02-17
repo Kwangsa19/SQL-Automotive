@@ -1,8 +1,12 @@
 # SQL-Automotive
 
-## 
+## Scenario
+An automotive dealership sells various car models to customers. Each sale can include multiple car models. The dealership wants to analyze its sales data to:
 
-
+* Identify the relationship between sales and customers.
+* Calculate total sales revenue since the beginning of 2021.
+* Determine the top 3 most popular car models based on sales frequency.
+* Calculate the average sale amount per customer.
 
 ## Database and Tables
 > Copy and paste all of this into your SQL editor
