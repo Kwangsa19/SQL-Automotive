@@ -131,12 +131,13 @@ SELECT s.SaleID, c.CustomerName
 FROM Sales s
 INNER JOIN Customers c ON s.CustomerID = c.CustomerID;
 ```
+* First, we selected `SaleID` from `Sales` table. The initial for `sales` table is s.
+* Second, we used INNER JOIN to combine rows from `Sales` and `Customers` where there is match in the `CustomerID` columns of both tables.
+* Last but not least, the result will show which customer (by name) corresponds to each sale. 
 
 
 
 2. Calculate total sales revenue since the beginning of 2021.
-
-
 ```
 SELECT SUM(cd.Quantity * ca.Price) AS TotalRevenue
 FROM SaleDetails cd
@@ -144,7 +145,12 @@ INNER JOIN Sales s ON cd.SaleID = s.SaleID
 INNER JOIN Cars ca ON cd.CarID = ca.CarID
 WHERE s.SaleDate >= '2021-01-01';
 ```
+* First, we defined `TotalRevenue` as the output of the total revenue since 2021.
+* We used `cd` as car details for easier reference. The `ca` means each car.
+* We then joinned sales details and SaleID on one condition which is SaledID in `car details` matches `ca.CarID`.  
+* The result will show the total revenue generated from `sales` since January 1st, 2021.
 
+   
 3. Determine the top 3 most popular car models based on sales frequency.
 
 ```
@@ -155,6 +161,9 @@ GROUP BY cd.CarID
 ORDER BY SalesFrequency DESC
 LIMIT 3;
 ```
+* First, we set up `SalesFrequency` column for the output
+* Second, sale details 
+
 
 4. Calculate the average sale amount per customer.
 ```
