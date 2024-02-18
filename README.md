@@ -134,7 +134,7 @@ FROM Sales s
 INNER JOIN Customers c ON s.CustomerID = c.CustomerID;
 ```
 This query will return which customers (by name) corresponds to each sale. 
-* First, we selected `SaleID` from `Sales` table. The initial for `sales` table is s.
+* First, we selected `SaleID` from `Sales` table and `CustomerName` from `Customers`. These will show in the output. The initial for `sales` table is s.
 * Second, we used INNER JOIN to combine rows from `Sales` and `Customers` where there is match in the `CustomerID` columns of both tables.
 * Last but not least, the result will show which customer (by name) corresponds to each sale.
 * Output: 
