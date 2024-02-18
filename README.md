@@ -134,7 +134,7 @@ FROM Sales s
 INNER JOIN Customers c ON s.CustomerID = c.CustomerID;
 ```
 This query will return which customers (by name) corresponds to each sale. 
-* First, we selected `SaleID` from `Sales` table and `CustomerName` from `Customers`. These will show in the output. The initial for `sales` table is s.
+* First, we selected `SaleID` from `Sales` table and `CustomerName` from `Customers`. These will show in the output. The initial for `sales` table is `s`.
 * Second, we used INNER JOIN to combine rows from `Sales` and `Customers` where there is match in the `CustomerID` columns of both tables.
 * Last but not least, the result will show which customer (by name) corresponds to each sale.
 * The output: 
@@ -152,7 +152,7 @@ WHERE s.SaleDate >= '2021-01-01';
 This SQL query calculates the total revenue generated from car sales since January 1, 2021.
 * First, we defined `TotalRevenue` as the output of the total revenue since 2021.
 * We used `sd` as `SaleDetails` (to avoid confusion) for easier reference. The `ca` means table `cars`. 
-* Then, we joinned sales details and SaleID on one condition which is SaledID in `SaleDetails` matches `SaleID` in the table `Sales`. After that, we joined sales details with `cars` on one condition which is `sd.CarID` matches `ca.CarID`.  
+* Then, we joinned sales details and SaleID on one condition which is `SaledID` in `SaleDetails` matches `SaleID` in the table `Sales`. After that, we joined sales details with `cars` on one condition which is `sd.CarID` matches `ca.CarID`.  
 * The result will show the total revenue generated from `sales` since January 1st, 2021.
 * The output:
 
@@ -172,7 +172,7 @@ LIMIT 3;
 This SQL query is designed to find the top 3 most popular car models based on the frequency of their sales. 
 * First, we set up `SalesFrequency` column for the output.
 * Second, `saleDetails` table is inner joined with `cars` on one condition which is `sd.CarID` matches `ca.CarID`.
-* Third, once we found what car models and sales frequency are, we group them by their `sd.CardID` and reverse them alphabetically. It allows the best selling car to appear at the top.
+* Third, once we found what car models and sales frequency are, we groupped them by their `sd.CardID` and reverse them alphabetically. It allows the best selling car to appear at the top.
 * Finally, we set `LIMIT` to 3 to display three best selling cars.
 * The output:
 
@@ -193,7 +193,7 @@ This SQL query calculates the average sale amount per customer for all sales rec
 * Second, from `sales s` table, we inner join it with `Customers c` on one condition that `CustomerID` in `sales` table matches `CustomerID` in `Customer` table.
 * Third, we inner join it with `SaleDetails sd` on one condition that `SaleID` in `Sales` table matches `SaleID` in `SaleDetails`.
 * Fourth, we inner join it with `cars ca` on one condition that `CarID` in `SaleDetails` table matches `CarID` in `cars`.
-* Last but not least, we group them by `CustomerID` in the `Sales` table.
+* Last but not least, we groupped them by `CustomerID` in the `Sales` table.
 * The output:
   
 ![heidisql_HraJyWZtAR](https://github.com/Kwangsa19/SQL-Automotive/assets/135963482/358aa3ab-a96c-4741-b7a0-6fe1e8430c8b)
