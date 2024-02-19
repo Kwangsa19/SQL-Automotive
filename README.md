@@ -127,7 +127,7 @@ INSERT INTO SaleDetails (SaleDetailID, SaleID, CarID, Quantity) VALUES
 ```
 
 ## Solutions
-1. Identify the relationship between sales and customers.
+1. Identify the relationship between sales and customers:
 ```
 SELECT s.SaleID, c.CustomerName
 FROM Sales s
@@ -141,7 +141,7 @@ This query will return which customers (by name) corresponds to each sale.
 
 ![heidisql_EvmOGFFfkS](https://github.com/Kwangsa19/SQL-Automotive/assets/135963482/24e8de51-f593-4f6c-87b1-3bd397cbad98)
 
-2. Calculate total sales revenue since the beginning of 2021.
+2. Calculate total sales revenue since the beginning of 2021:
 ```
 SELECT SUM(sd.Quantity * ca.Price) AS TotalRevenue
 FROM SaleDetails sd
@@ -159,7 +159,7 @@ This SQL query calculates the total revenue generated from car sales since Janua
 ![heidisql_NU08h1JyaG](https://github.com/Kwangsa19/SQL-Automotive/assets/135963482/875e6ae5-efc8-4245-ad26-72af766e2fd2)
 
    
-3. Determine the top 3 most popular car models based on sales frequency.
+3. Determine the top 3 most popular car models based on sales frequency:
 
 ```
 SELECT ca.CarModel, COUNT(sd.CarID) AS SalesFrequency
@@ -179,7 +179,7 @@ This SQL query is designed to find the top 3 most popular car models based on th
 ![heidisql_7wOMmRJ1ep](https://github.com/Kwangsa19/SQL-Automotive/assets/135963482/4d373d57-c56a-4464-8844-22ebeb4537d6)
 
 
-4. Calculate the average sale amount per customer.
+4. Calculate the average sale amount per customer:
 ```
 SELECT c.CustomerName, AVG(sd.Quantity * ca.Price) AS AvgSaleAmount
 FROM Sales s
